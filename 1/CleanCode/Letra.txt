@@ -1,0 +1,56 @@
+Ecommerce.
+
+Historial
+============================================================================
+
+Version 0.1:
+- Calcular precio final a pagar dado un carrito de compra. 
+- El precio de los productos puede estar en dolares o en pesos. Y a la hora de ejecutar la compra se provee la moneda
+con la que se quiere pagar. El sistema debera si es necesario covertir de dolares a pesos o de pesos a dolares. Teniendo 
+en cuenta que la relacion pesos dolar es 31.
+- Los productos pueden tener un descuento asociado. De ser asi, es necesario calcular el descuento a la hora de realizar 
+la compra.
+
+
+Version 0.2:
+- Se viene el dia de la madre y cuanto antes tenemos que agregar descuentos para las siguientes categorias:
+Perfumes, Toallas, Cocinas.
+	- El porcentaje de descuento debe ser del 15%.
+	- El desceunto debe aplicar solo en la semana anterior al dia de la madre, hasta esa fecha. 
+	- Dia de la madre: 12 de Mayo. 
+
+Fix Bug 0.2.1:
+- Se estaban aplicando descuentos al dia de la madre muy altos porque se suma el descuento del producto mas el descuento 
+del dia de la madre. Solucion: Sumar el descuento del dia de la madre solo si el descuento del producto es menor a 15%.
+
+Version 0.3:
+- Se viene el dia de la padre y cuanto antes tenemos que agregar descuentos para las siguientes categorias:
+Afeitadoras, Herramientas, Vinos.
+	- El porcentaje de descuento debe ser del 10%.
+	- El desceunto debe aplicar solo en la semana anterior al dia de la padre, hasta esa fecha. 
+	- Dia de la padre: 10 de Julio.
+
+Siguiente version.
+============================================================================
+
+Version 1.0:
+Dado que el producto fue un exito necesitamos agregar varias funcionalidades para la siguiente version. 
+	1) Cambio de dolar, necesitamos tener dolar venta y dolar compra. A la hora de convertir moneda. 
+	    - Compra: 29, Venta: 30.
+	2) Los cabios de dolar deben ser configurables. Ya que cambian a cada rato, y en la version anterior perdimos guita.
+	3) Necesitamos agregar descuentos para el dia del niño:
+		- 2 semanas del 21 de agosto debera habilitarse esa promocion.
+		- Categorias: Autitos, Muñecas - 10% de descuento.
+		- Categorias: Espadas, Pistolas - 15% de descuento. 
+	4) Aun no sabemos las fechas de estos dias para el proximo año, es necesario habilitar el sistema para que
+	   de alguna manera podamos configurar las fechas sin tener que modificar el codigo. 
+
+ A futuro se preveen mas promociones:
+	- Descuento si es tu cumpleaños.
+	- Calculo de precio de envio al interior del pais. 
+	- Descuentos a Productos discontinuados. 
+	- Descuento por Navidad y Reyes, a productos dentro de una determinada categoria. 
+
+Requerimientos no funcionales:
+- Prepar el codigo para que el dia de mañana extenderlo sea facil es ahora. 
+- Tambien desconfiamos que de quien hizo los tests. Al correr code coverage nos da que el dia de la madre no fue testeado.
