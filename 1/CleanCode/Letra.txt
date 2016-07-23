@@ -49,7 +49,7 @@ Dado que el producto fue un exito necesitamos agregar varias funcionalidades par
 	- Descuento si es tu cumpleaños.
 	- Calculo de precio de envio al interior del pais. 
 	- Descuentos a Productos discontinuados. 
-	- Descuento por Navidad y Reyes, a productos dentro de una determinada categoria. 
+	- Descuentos por Navidad y Reyes, a productos dentro de una determinada categoria. 
 
 Requerimientos no funcionales:
 - Prepar el codigo para que el dia de mañana extenderlo sea facil es ahora. 
