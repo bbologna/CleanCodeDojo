@@ -8,6 +8,10 @@ using CleanCode.Entities;
 
 namespace CleanCode
 {
+
+    /// <summary>
+    /// Niveles de abstraccion
+    /// </summary>
     public class StudentsSynchronize
     {
         private List<Student> registeredStudents = new List<Student>();

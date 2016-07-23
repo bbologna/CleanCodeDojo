@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace CleanCode
 {
+    /// <summary>
+    /// Do one thing, be the only one who does it.
+    /// </summary>
     public class StudentInMemoryRepository
     {
         private List<Student> students;
