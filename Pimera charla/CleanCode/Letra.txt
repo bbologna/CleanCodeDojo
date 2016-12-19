@@ -52,5 +52,5 @@ Dado que el producto fue un exito necesitamos agregar varias funcionalidades par
 	- Descuentos por Navidad y Reyes, a productos dentro de una determinada categoria. 
 
 Requerimientos no funcionales:
-- Prepar el codigo para que el dia de mañana extenderlo sea facil es ahora. 
+- Prepar el codigo para que el dia de mañana extenderlo sea facil.
 - Tambien desconfiamos que de quien hizo los tests. Al correr code coverage nos da que el dia de la madre no fue testeado.

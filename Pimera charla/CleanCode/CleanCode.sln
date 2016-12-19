@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanCode", "CleanCode\CleanCode.csproj", "{3E57AC2F-2F05-4BD9-A54C-1C6F53C773FA}"
 EndProject
@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Letra.txt = Letra.txt
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Charla", "Charla", "{F98005D1-33EC-43E9-B566-B7EF1F8BF759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ejercicio", "Ejercicio", "{59B0FEC1-1F41-4750-BEC9-4DD52684FBD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,5 +39,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E57AC2F-2F05-4BD9-A54C-1C6F53C773FA} = {F98005D1-33EC-43E9-B566-B7EF1F8BF759}
+		{2AF926EB-CB26-4D4D-B92B-45E891F4E027} = {59B0FEC1-1F41-4750-BEC9-4DD52684FBD2}
+		{B2FF83A5-0548-4A0A-B656-08BBD6327940} = {59B0FEC1-1F41-4750-BEC9-4DD52684FBD2}
 	EndGlobalSection
 EndGlobal
