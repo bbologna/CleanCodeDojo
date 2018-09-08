@@ -32,7 +32,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(0); // Espero el precio en dolaress
+            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolaress
 
             //Assert
             Assert.AreEqual(190m, totalPrice);
@@ -58,7 +58,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(0); // Espero el precio en dolares
+            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolares
 
             //Assert
             Assert.AreEqual(190m, totalPrice);
@@ -81,7 +81,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(1); // Espero el precio en pesos
+            var totalPrice = shoppingCart.Buy(1); // Espero el precio en pesos
 
             //Assert
             Assert.AreEqual(9920, totalPrice);
@@ -104,7 +104,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(0); // Espero el precio en dolares
+            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolares
 
             //Assert
             Assert.AreEqual(180, totalPrice);
@@ -127,7 +127,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(1); // Espero el precio en pesos
+            var totalPrice = shoppingCart.Buy(1); // Espero el precio en pesos
 
             //Assert
             Assert.AreEqual(5270, totalPrice);
@@ -151,7 +151,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(1); // Espero el precio en pesos
+            var totalPrice = shoppingCart.Buy(1); // Espero el precio en pesos
 
             //Assert
             Assert.AreEqual(10075, totalPrice);
@@ -175,7 +175,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             };
 
             //Act
-            var totalPrice = shoppingCart.Shop(0); // Espero el precio en dolares
+            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolares
 
             //Assert
             Assert.AreEqual(335, totalPrice);

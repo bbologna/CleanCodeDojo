@@ -21,7 +21,7 @@ namespace Ecommerce
             Products.Add(product);
         }
 
-        public decimal Shop(int currency)
+        public decimal Buy(int currency)
         {
             decimal total = 0;
             foreach(var product in Products)
@@ -30,7 +30,7 @@ namespace Ecommerce
                 if (product.Currency == 1)
                     isDollar = false;
 
-                var pwd = 0m;
+                var pwd = 0m; // Que sera esto?
                 if (product.HasDiscount)
                 {
                     pwd = CurrencyCalculator.Calculate(pwd = product.Price - (product.Price * product.DiscountPercentage / 100), currency, isDollar);

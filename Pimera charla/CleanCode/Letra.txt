@@ -14,9 +14,9 @@ la compra.
 
 Version 0.2:
 - Se viene el dia de la madre y cuanto antes tenemos que agregar descuentos para las siguientes categorias:
-Perfumes, Toallas, Cocinas.
+- Flores, Bombones, Peluches.
 	- El porcentaje de descuento debe ser del 15%.
-	- El desceunto debe aplicar solo en la semana anterior al dia de la madre, hasta esa fecha. 
+	- El descuento debe aplicar solo en la semana anterior al dia de la madre, hasta esa fecha. 
 	- Dia de la madre: 12 de Mayo. 
 
 Fix Bug 0.2.1:
@@ -41,7 +41,7 @@ Dado que el producto fue un exito necesitamos agregar varias funcionalidades par
 	3) Necesitamos agregar descuentos para el dia del niño:
 		- 2 semanas del 21 de agosto debera habilitarse esa promocion.
 		- Categorias: Autitos, Muñecas - 10% de descuento.
-		- Categorias: Espadas, Pistolas - 15% de descuento. 
+		- Categorias: Plastisina, Crayolas - 15% de descuento. 
 	4) Aun no sabemos las fechas de estos dias para el proximo año, es necesario habilitar el sistema para que
 	   de alguna manera podamos configurar las fechas sin tener que modificar el codigo. 
 
