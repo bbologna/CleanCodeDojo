@@ -37,7 +37,8 @@ Version 1.0:
 Dado que el producto fue un exito necesitamos agregar varias funcionalidades para la siguiente version. 
 	1) Cambio de dolar, necesitamos tener dolar venta y dolar compra. A la hora de convertir moneda. 
 	    - Compra: 29, Venta: 30.
-	2) Los cabios de dolar deben ser configurables. Ya que cambian a cada rato, y en la version anterior perdimos guita.
+	2) Los cambios de dolar deben ser configurables. Ya que cambian a cada rato, y en la version anterior perdimos guita.
+	Iniciar el sistema otorgandole el tipo de cambio. 
 	3) Necesitamos agregar descuentos para el dia del niño:
 		- 2 semanas del 21 de agosto debera habilitarse esa promocion.
 		- Categorias: Autitos, Muñecas - 10% de descuento.
