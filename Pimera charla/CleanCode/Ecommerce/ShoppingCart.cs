@@ -68,15 +68,15 @@ namespace Ecommerce
                     {
                         if (product.Categories != null)
                         {
-                            if (product.Categories.Any(c => c.Equals("Perfumes")))
+                            if (product.Categories.Any(c => c.Equals("Flores")))
                             {
                                 pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                             }
-                            else if (product.Categories.Any(c => c.Equals("Toallas")))
+                            else if (product.Categories.Any(c => c.Equals("Bombones")))
                             {
                                 pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                             }
-                            else if (product.Categories.Any(c => c.Equals("Cocinas")))
+                            else if (product.Categories.Any(c => c.Equals("Peluches")))
                             {
                                 pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                             }
