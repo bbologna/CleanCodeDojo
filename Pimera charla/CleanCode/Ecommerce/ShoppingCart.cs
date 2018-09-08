@@ -30,11 +30,7 @@ namespace Ecommerce
                 if (product.Currency == 1)
                     isDollar = false;
 
-                var pwd = 0m; // Que sera esto?
-                //if (product.HasDiscount)
-                //{
-                //    pwd = CurrencyCalculator.Calculate(pwd = product.Price - (product.Price * product.DiscountPercentage / 100), currency, isDollar);
-                //}
+                var pwd = 0m; // Que sera esto
 
                 // Apply fathers week discount
                 if (systemData.GetCurrentDate().DayOfYear <= 192 && systemData.GetCurrentDate().DayOfYear >= 192 - 7)
