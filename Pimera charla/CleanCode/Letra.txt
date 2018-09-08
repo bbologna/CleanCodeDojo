@@ -35,18 +35,24 @@ Siguiente version.
 
 Version 1.0:
 Dado que el producto fue un exito necesitamos agregar varias funcionalidades para la siguiente version. 
-	1) Cambio de dolar, necesitamos tener dolar venta y dolar compra. A la hora de convertir moneda. 
-	    - Compra: 29, Venta: 30.
-	2) Los cambios de dolar deben ser configurables. Ya que cambian a cada rato, y en la version anterior perdimos guita.
-	Iniciar el sistema otorgandole el tipo de cambio. 
-	3) Necesitamos agregar descuentos para el dia del niño:
-		- 2 semanas del 21 de agosto debera habilitarse esa promocion.
-		- Categorias: Autitos, Muñecas - 10% de descuento.
-		- Categorias: Plastisina, Crayolas - 15% de descuento. 
-	4) Aun no sabemos las fechas de estos dias para el proximo año, es necesario habilitar el sistema para que
-	   de alguna manera podamos configurar las fechas sin tener que modificar el codigo. 
 
- A futuro se preveen mas promociones:
+Bugs reportados:
+ 1- Hay unos descuentos que no se estan aplicando. Al parecer sudece cuando el descuento no cae en las categorias del dia del padre
+ O del dia de la madre. (Verificar Tests).
+
+Funcionalidades:
+1- Cambio de dolar, necesitamos tener dolar venta y dolar compra. A la hora de convertir moneda. 
+2- Los cambios de dolar deben ser configurables. Ya que cambian a cada rato, y en la version anterior perdimos guita. 
+   Promedio de Ej: Compra: 29, Venta: 30.
+   Iniciar el sistema otorgandole el tipo de cambio. 
+3- Necesitamos agregar descuentos para el dia del niño:
+	- 2 semanas del 21 de agosto debera habilitarse esa promocion.
+	- Categorias: Autitos, Muñecas - 10% de descuento.
+	- Categorias: Plastisina, Crayolas - 15% de descuento. 
+4- Aun no sabemos las fechas de estos dias para el proximo año, es necesario habilitar el sistema para que 
+de alguna manera podamos configurar las fechas sin tener que modificar el codigo. 
+
+A futuro se preveen mas promociones:
 	- Descuento si es tu cumpleaños.
 	- Calculo de precio de envio al interior del pais. 
 	- Descuentos a Productos discontinuados. 
