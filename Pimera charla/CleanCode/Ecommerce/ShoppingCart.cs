@@ -31,15 +31,15 @@ namespace Ecommerce
                     isDollar = false;
 
                 var pwd = 0m; // Que sera esto?
-                if (product.HasDiscount)
-                {
-                    pwd = CurrencyCalculator.Calculate(pwd = product.Price - (product.Price * product.DiscountPercentage / 100), currency, isDollar);
-                }
+                //if (product.HasDiscount)
+                //{
+                //    pwd = CurrencyCalculator.Calculate(pwd = product.Price - (product.Price * product.DiscountPercentage / 100), currency, isDollar);
+                //}
 
                 // Apply fathers week discount
                 if (systemData.GetCurrentDate().DayOfYear <= 192 && systemData.GetCurrentDate().DayOfYear >= 192 - 7)
                 {
-                    var fd = 10m;
+                    var fd = 10m; //Father's discount 
                     if (product.DiscountPercentage <= 15) // Only if the discount percentage of the product itself is less than 15
                     {
                         if (product.Categories != null)
