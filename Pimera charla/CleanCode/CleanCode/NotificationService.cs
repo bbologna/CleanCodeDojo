@@ -8,13 +8,8 @@ namespace CleanCode
 {
     public class NotificationService
     {
-#pragma warning disable CS0649 // Field 'NotificationService.service' is never assigned to, and will always have its default value null
         private IWebApiService service;
-#pragma warning restore CS0649 // Field 'NotificationService.service' is never assigned to, and will always have its default value null
-
-#pragma warning disable CS0649 // Field 'NotificationService.DbNotififacion' is never assigned to, and will always have its default value null
         private IDbNotification DbNotififacion;
-#pragma warning restore CS0649 // Field 'NotificationService.DbNotififacion' is never assigned to, and will always have its default value null
 
         public void NotifyErrorWebApi(string error)
         {
