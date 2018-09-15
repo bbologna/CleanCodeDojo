@@ -12,6 +12,18 @@ namespace Ecommerce
 
         public User User { get; set; }
 
+        private List<string> FatherDiscountCategories { get; set; }
+
+        private ISystemData systemData;
+        public ShoppingCart(ISystemData systemData)
+        {
+            this.systemData = systemData;
+            FatherDiscountCategories = new List<string>()
+            {
+                "Afeitadoras", "Herramientas","Vinos"
+            };
+        }
+
         public void AddProduct(Product product)
         {
             if (this.Products == null)
@@ -30,29 +42,17 @@ namespace Ecommerce
                 if (product.Currency == 1)
                     isDollar = false;
 
-                var pwd = 0m; // Que sera esto
+                var priceWithDiscount = 0m;// Que sera esto
+
+                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage) / 100), currency, isDollar);
 
                 // Apply fathers week discount
                 if (systemData.GetCurrentDate().DayOfYear <= 192 && systemData.GetCurrentDate().DayOfYear >= 192 - 7)
                 {
                     var fd = 10m; //Father's discount 
-                    if (product.DiscountPercentage <= 15) // Only if the discount percentage of the product itself is less than 15
+                    if (product.DiscountPercentage <= 15 && ContainsDiscountCategory(FatherDiscountCategories, product.Categories)) // Only if the discount percentage of the product itself is less than 15
                     {
-                        if (product.Categories != null)
-                        {
-                            if (product.Categories.Any(c => c.Equals("Afeitadoras")))
-                            {
-                                pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
-                            }
-                            else if (product.Categories.Any(c => c.Equals("Herramientas")))
-                            {
-                                pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
-                            }
-                            else if (product.Categories.Any(c => c.Equals("Vinos")))
-                            {
-                                pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
-                            }
-                        }
+                        priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                     }
                 }
 
@@ -66,23 +66,23 @@ namespace Ecommerce
                         {
                             if (product.Categories.Any(c => c.Equals("Flores")))
                             {
-                                pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
+                                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                             }
                             else if (product.Categories.Any(c => c.Equals("Bombones")))
                             {
-                                pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
+                                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                             }
                             else if (product.Categories.Any(c => c.Equals("Peluches")))
                             {
-                                pwd = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
+                                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
                             }
                         }
                     }
                 }
 
-                if (pwd != 0)
+                if (priceWithDiscount != 0)
                 {
-                    total += pwd; // Sums Discount
+                    total += priceWithDiscount; // Sums Discount
                 }
                 else
                 {
@@ -92,10 +92,11 @@ namespace Ecommerce
             return total;
         }
 
-        private ISystemData systemData;
-        public ShoppingCart(ISystemData systemData)
+        private bool ContainsDiscountCategory(IEnumerable<string> categories, IEnumerable<string> productCategories)
         {
-            this.systemData = systemData;
+            return productCategories != null 
+                && categories != null 
+                && categories.Any(x => productCategories.Contains(x));
         }
     }
 }
