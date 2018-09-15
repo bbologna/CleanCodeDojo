@@ -13,8 +13,9 @@ namespace Ecommerce.Tests.ShoppingCartTests
     [TestClass]
     public class FathersDayDiscountTests
     {
+
         [TestMethod]
-        public void WithFathersDayDiscount_01()
+        public void TwoProducts_ShouldApplyDiscountOnlyToSecondProduct()
         {
             ISystemData dateSystem = Substitute.For<ISystemData>();
             dateSystem.GetCurrentDate().Returns<DateTime>(new DateTime(2016, 7, 7)); // Semana del padre

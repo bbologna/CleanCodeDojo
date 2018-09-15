@@ -59,6 +59,7 @@
     <Compile Include="CalculatePriceOnCurrency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingCartTests\FathersDayDiscountTests.cs" />
+    <Compile Include="ShoppingCartTests\MothersDayDiscountTest.cs" />
     <Compile Include="ShoppingCartTests\WithoutDiscountTests.cs" />
     <Compile Include="ShoppingCartTests\WithProductDiscountsTests.cs" />
   </ItemGroup>
