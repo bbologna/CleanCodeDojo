@@ -14,13 +14,20 @@ namespace Ecommerce
 
         private List<string> FatherDiscountCategories { get; set; }
 
+        private List<string> MothersDiscountCategories { get; set; }
+
         private ISystemData systemData;
         public ShoppingCart(ISystemData systemData)
         {
             this.systemData = systemData;
             FatherDiscountCategories = new List<string>()
             {
-                "Afeitadoras", "Herramientas","Vinos"
+                "Afeitadoras", "Herramientas", "Vinos"
+            };
+
+            MothersDiscountCategories = new List<string>()
+            {
+                "Flores", "Bombones", "Peluches"
             };
         }
 
@@ -49,34 +56,20 @@ namespace Ecommerce
                 // Apply fathers week discount
                 if (systemData.GetCurrentDate().DayOfYear <= 192 && systemData.GetCurrentDate().DayOfYear >= 192 - 7)
                 {
-                    var fd = 10m; //Father's discount 
+                    var fathersDayDiscount = 10m; //Father's discount 
                     if (product.DiscountPercentage <= 15 && ContainsDiscountCategory(FatherDiscountCategories, product.Categories)) // Only if the discount percentage of the product itself is less than 15
                     {
-                        priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
+                        priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fathersDayDiscount) / 100), currency, isDollar);
                     }
                 }
 
                 // Apply mothers week discount
                 if (systemData.GetCurrentDate().DayOfYear <= 136 && systemData.GetCurrentDate().DayOfYear >= 136 - 7)
                 {
-                    var fd = 15m;
-                    if (product.DiscountPercentage <= 15) // Only if the discount percentage of the product itself is less than 15
+                    var mothersDayDiscount = 15m;
+                    if (product.DiscountPercentage <= 15 && ContainsDiscountCategory(MothersDiscountCategories, product.Categories)) // Only if the discount percentage of the product itself is less than 15
                     {
-                        if (product.Categories != null)
-                        {
-                            if (product.Categories.Any(c => c.Equals("Flores")))
-                            {
-                                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
-                            }
-                            else if (product.Categories.Any(c => c.Equals("Bombones")))
-                            {
-                                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
-                            }
-                            else if (product.Categories.Any(c => c.Equals("Peluches")))
-                            {
-                                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fd) / 100), currency, isDollar);
-                            }
-                        }
+                        priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + mothersDayDiscount) / 100), currency, isDollar);
                     }
                 }
 
