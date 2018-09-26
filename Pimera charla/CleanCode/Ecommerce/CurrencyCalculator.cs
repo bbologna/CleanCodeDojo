@@ -6,30 +6,34 @@ using System.Threading.Tasks;
 
 namespace Ecommerce
 {
-    public static class CurrencyCalculator
+    public class CurrencyCalculator
     {
-        public static decimal Calculate(decimal price, int currency, bool isDollar)
+        private readonly decimal salePrice;
+        private readonly decimal buyPrice;
+
+        public CurrencyCalculator(decimal salePrice, decimal buyPrice)
         {
-            // Check the currency type
-            switch (currency)
+            this.salePrice = salePrice;
+            this.buyPrice = buyPrice;
+        }
+
+        public decimal Convert(decimal price, Currency from, Currency to)
+        {
+            if (from == to)
             {
-                case 0: // 0 Convert to Dollars
-                        // If the currency is Dollars, and isDollar is true, do nothing
-                        if (isDollar)
-                            return price;
-                        else
-                        // Else, divide it by the current dollar price
-                            return price / 31;
-                case 1: // 1 Convert to Pesos
-                        // If the currency is pesos, and isDollar is true, multiply it by the price of dolar
-                        if (isDollar)
-                            return price * 31;
-                        // Else, do nothing.
-                        else
-                            return price;
+                return price;
+            }
+            // Check the currency type
+            switch (from)
+            {
+                case Currency.Dollar:
+                    return price * buyPrice;
+                case Currency.Peso:
+                    return price / salePrice;
                 default:
-                        return -1;
+                    return -1;
             }
         }
+
     }
 }

@@ -12,5 +12,11 @@ namespace Ecommerce
         {
             return DateTime.Now;
         }
+
+        public CurrencyCalculator GetCurrencyCalculator()
+        {
+            return new CurrencyCalculator(34, 33);
+        }
+
     }
 }

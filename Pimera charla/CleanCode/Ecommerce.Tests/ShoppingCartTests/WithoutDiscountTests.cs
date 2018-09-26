@@ -28,13 +28,13 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0 }, // 100 Dolares
-                    new Product() { Price = 100m, Currency = 0 }  // 100 Dolares
+                    new Product() { Price = 100m, Currency = Currency.Dollar }, // 100 Dolares
+                    new Product() { Price = 100m, Currency = Currency.Dollar }  // 100 Dolares
                 }
             };
 
             //Act
-            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolares
+            var totalPrice = shoppingCart.Buy(Currency.Dollar); // Espero el precio en dolares
 
             //Assert
             Assert.AreEqual(200m, totalPrice);
@@ -51,16 +51,16 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0 }, // 100 Dolares
-                    new Product() { Price = 100m, Currency = 0 }  // 100 Dolares
+                    new Product() { Price = 100m, Currency = Currency.Dollar }, // 100 Dolares
+                    new Product() { Price = 100m, Currency = Currency.Dollar }  // 100 Dolares
                 }
             };
 
             //Act
-            var totalPrice = shoppingCart.Buy(1); // Espero el precio en pesos
+            var totalPrice = shoppingCart.Buy(Currency.Peso); // Espero el precio en pesos
 
             //Assert
-            Assert.AreEqual(6200, totalPrice);
+            Assert.AreEqual(6600, totalPrice);
         }
 
         [TestMethod]
@@ -74,13 +74,13 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0 }, // 100 Dolares
-                    new Product() { Price = 3100, Currency = 1 } // 3100 Pesos
+                    new Product() { Price = 100m, Currency = Currency.Dollar }, // 100 Dolares
+                    new Product() { Price = 3400, Currency = Currency.Peso } // 3100 Pesos
                 }
             };
 
             //Act
-            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolares
+            var totalPrice = shoppingCart.Buy(Currency.Dollar); // Espero el precio en dolares
 
             //Assert
             Assert.AreEqual(200, totalPrice);
@@ -97,16 +97,16 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 3100m, Currency = 1 }, // 3100 Pesos
-                    new Product() { Price = 100, Currency = 0 } // 100 Dolares
+                    new Product() { Price = 3100m, Currency = Currency.Peso }, // 3100 Pesos
+                    new Product() { Price = 100, Currency = Currency.Dollar } // 100 Dolares
                 }
             };
 
             //Act
-            var totalPrice = shoppingCart.Buy(1); // Espero el precio en pesos
+            var totalPrice = shoppingCart.Buy(Currency.Peso); // Espero el precio en pesos
 
             //Assert
-            Assert.AreEqual(6200, totalPrice);
+            Assert.AreEqual(6400, totalPrice);
         }
 
         [TestMethod]
@@ -120,17 +120,17 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 3100m, Currency = 1 }, // 3100 Pesos
-                    new Product() { Price = 100, Currency = 0 }, // 100 Dolares
-                    new Product() { Price = 150, Currency = 0 } // 150 Dolares
+                    new Product() { Price = 3100m, Currency = Currency.Peso }, // 3100 Pesos
+                    new Product() { Price = 100, Currency = Currency.Dollar }, // 100 Dolares
+                    new Product() { Price = 150, Currency = Currency.Dollar } // 150 Dolares
                 }
             };
 
             //Act
-            var totalPrice = shoppingCart.Buy(1); // Espero el precio en pesos
+            var totalPrice = shoppingCart.Buy(Currency.Peso); // Espero el precio en pesos
 
             //Assert
-            Assert.AreEqual(10850, totalPrice);
+            Assert.AreEqual(11350, totalPrice);
         }
 
         [TestMethod]
@@ -144,14 +144,14 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 3100m, Currency = 1 }, // 3100 Pesos
-                    new Product() { Price = 100, Currency = 0 }, // 100 Dolares
-                    new Product() { Price = 150, Currency = 0 } // 150 Dolares
+                    new Product() { Price = 3400m, Currency = Currency.Peso }, // 3100 Pesos
+                    new Product() { Price = 100, Currency = Currency.Dollar }, // 100 Dolares
+                    new Product() { Price = 150, Currency = Currency.Dollar } // 150 Dolares
                 }
             };
 
             //Act
-            var totalPrice = shoppingCart.Buy(0); // Espero el precio en dolares
+            var totalPrice = shoppingCart.Buy(Currency.Dollar); // Espero el precio en dolares
 
             //Assert
             Assert.AreEqual(350, totalPrice);

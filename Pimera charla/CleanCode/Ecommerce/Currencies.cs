@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ecommerce
 {
-    public interface ISystemData
+    public enum Currency
     {
-        DateTime GetCurrentDate();
-
-        CurrencyCalculator GetCurrencyCalculator();
+        Dollar,
+        Peso
     }
 }

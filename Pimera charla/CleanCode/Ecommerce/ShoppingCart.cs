@@ -16,6 +16,8 @@ namespace Ecommerce
 
         private List<string> MothersDiscountCategories { get; set; }
 
+        
+
         private ISystemData systemData;
         public ShoppingCart(ISystemData systemData)
         {
@@ -40,18 +42,16 @@ namespace Ecommerce
             Products.Add(product);
         }
 
-        public decimal Buy(int currency)
+        public decimal Buy(Currency paymentCurrency)
         {
             decimal total = 0;
             foreach(var product in Products)
             {
-                bool isDollar = true;
-                if (product.Currency == 1)
-                    isDollar = false;
-
                 var priceWithDiscount = 0m;// Que sera esto
 
-                priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage) / 100), currency, isDollar);
+                CurrencyCalculator CuCalc = this.systemData.GetCurrencyCalculator();
+
+                priceWithDiscount = CuCalc.Convert(product.Price - (product.Price * (product.DiscountPercentage) / 100), product.Currency, paymentCurrency);
 
                 // Apply fathers week discount
                 if (systemData.GetCurrentDate().DayOfYear <= 192 && systemData.GetCurrentDate().DayOfYear >= 192 - 7)
@@ -59,7 +59,7 @@ namespace Ecommerce
                     var fathersDayDiscount = 10m; //Father's discount 
                     if (product.DiscountPercentage <= 15 && ContainsDiscountCategory(FatherDiscountCategories, product.Categories)) // Only if the discount percentage of the product itself is less than 15
                     {
-                        priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + fathersDayDiscount) / 100), currency, isDollar);
+                        priceWithDiscount = CuCalc.Convert(product.Price - (product.Price * (product.DiscountPercentage + fathersDayDiscount) / 100), product.Currency, paymentCurrency);
                     }
                 }
 
@@ -69,7 +69,7 @@ namespace Ecommerce
                     var mothersDayDiscount = 15m;
                     if (product.DiscountPercentage <= 15 && ContainsDiscountCategory(MothersDiscountCategories, product.Categories)) // Only if the discount percentage of the product itself is less than 15
                     {
-                        priceWithDiscount = CurrencyCalculator.Calculate(product.Price - (product.Price * (product.DiscountPercentage + mothersDayDiscount) / 100), currency, isDollar);
+                        priceWithDiscount = CuCalc.Convert(product.Price - (product.Price * (product.DiscountPercentage + mothersDayDiscount) / 100), product.Currency, paymentCurrency);
                     }
                 }
 
@@ -79,7 +79,7 @@ namespace Ecommerce
                 }
                 else
                 {
-                    total += CurrencyCalculator.Calculate(product.Price, currency, isDollar); // Sums price if no discount was applied.
+                    total += CuCalc.Convert(product.Price, product.Currency, paymentCurrency); // Sums price if no discount was applied.
                 }
             }
             return total;

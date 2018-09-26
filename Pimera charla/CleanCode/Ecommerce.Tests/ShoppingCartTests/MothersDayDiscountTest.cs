@@ -25,9 +25,9 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 200m, Currency = 0, DiscountPercentage = 50 }, // 100 Dolares
+                    new Product() { Price = 200m, Currency = Currency.Dollar, DiscountPercentage = 50 }, // 100 Dolares
 
-                    new Product() { Price = 100m, Currency = 0, Categories = new string[] { "Flores" } }
+                    new Product() { Price = 100m, Currency = Currency.Dollar, Categories = new string[] { "Flores" } }
                 }
             };
 
@@ -51,7 +51,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0, Categories = new string[] { "Flores" } }
+                    new Product() { Price = 100m, Currency = Currency.Dollar, Categories = new string[] { "Flores" } }
                 }
             };
 
@@ -75,7 +75,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0, Categories = new string[] { "Pepe" } }
+                    new Product() { Price = 100m, Currency = Currency.Dollar, Categories = new string[] { "Pepe" } }
                 }
             };
 
@@ -99,7 +99,7 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0, Categories = new string[] { "Flores" } }
+                    new Product() { Price = 100m, Currency = Currency.Dollar, Categories = new string[] { "Flores" } }
                 }
             };
 
@@ -120,8 +120,8 @@ namespace Ecommerce.Tests.ShoppingCartTests
             {
                 Products = new List<Product>()
                 {
-                    new Product() { Price = 100m, Currency = 0, Categories = new string[] { "Flores" } },
-                    new Product() { Price = 100m, Currency = 0, Categories = new string[] { "Bombones" } }
+                    new Product() { Price = 100m, Currency = Currency.Dollar, Categories = new string[] { "Flores" } },
+                    new Product() { Price = 100m, Currency = Currency.Dollar, Categories = new string[] { "Bombones" } }
                 }
             };
 

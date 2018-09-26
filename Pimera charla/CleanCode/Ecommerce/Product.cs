@@ -11,7 +11,7 @@ namespace Ecommerce
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public int Currency { get; set; }
+        public Currency Currency { get; set; }
         public bool HasDiscount
         {
             get

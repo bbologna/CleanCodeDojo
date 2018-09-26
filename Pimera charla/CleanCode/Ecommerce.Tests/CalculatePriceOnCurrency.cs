@@ -6,6 +6,14 @@ namespace Ecommerce.Tests
     [TestClass]
     public class PriceCalculationTests
     {
+        private CurrencyCalculator currencyCalculator;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            currencyCalculator = new CurrencyCalculator(34, 33);
+        }
+
         [TestMethod]
         public void CalculatePrice_DollarsToPesos_1Dollar()
         {
@@ -13,10 +21,10 @@ namespace Ecommerce.Tests
             var dollars = 1;
 
             //Act
-            var result = CurrencyCalculator.Calculate(dollars, 1, true);
+            var result = currencyCalculator.Convert(dollars, Currency.Dollar, Currency.Peso);
 
             //Assert
-            Assert.AreEqual(31, result);
+            Assert.AreEqual(33, result);
         }
 
         [TestMethod]
@@ -26,33 +34,33 @@ namespace Ecommerce.Tests
             var dollars = 5;
 
             //Act
-            var result = CurrencyCalculator.Calculate(dollars, 1, true);
+            var result = currencyCalculator.Convert(dollars, Currency.Dollar, Currency.Peso);
 
             //Assert
-            Assert.AreEqual(155, result);
+            Assert.AreEqual(165, result);
         }
 
         [TestMethod]
-        public void CalculatePrice_PesosToDollars_31Pesos()
+        public void CalculatePrice_PesosToDollars_34Pesos()
         {
             //Arrange
-            var pesos = 31;
+            var pesos = 34;
 
             //Act
-            var result = CurrencyCalculator.Calculate(pesos, 0, false);
+            var result = currencyCalculator.Convert(pesos, Currency.Peso, Currency.Dollar);
 
             //Assert
             Assert.AreEqual(1, result);
         }
 
         [TestMethod]
-        public void CalculatePrice_PesosToDollars_155Pesos()
+        public void CalculatePrice_PesosToDollars_170Pesos()
         {
             //Arrange
-            var pesos = 155;
+            var pesos = 170;
 
             //Act
-            var result = CurrencyCalculator.Calculate(pesos, 0, false);
+            var result = currencyCalculator.Convert(pesos, Currency.Peso, Currency.Dollar);
 
             //Assert
             Assert.AreEqual(5, result);
@@ -65,7 +73,7 @@ namespace Ecommerce.Tests
             var dollars = 1;
 
             //Act
-            var result = CurrencyCalculator.Calculate(dollars, 0, true);
+            var result = currencyCalculator.Convert(dollars, Currency.Dollar, Currency.Dollar);
 
             //Assert
             Assert.AreEqual(1, result);
@@ -78,7 +86,7 @@ namespace Ecommerce.Tests
             var pesos = 31;
 
             //Act
-            var result = CurrencyCalculator.Calculate(pesos, 1, false);
+            var result = currencyCalculator.Convert(pesos, Currency.Peso, Currency.Peso);
 
             //Assert
             Assert.AreEqual(31, result);
